@@ -169,7 +169,11 @@ label chapter3:
 # --- Chapter 4: The Royal Dinner Debate / The Gallows Verdict / The Sanctuary’s Oath ---
 label chapter4:
     scene bg dining_hall
-    show king ill if king_health == "ill" else king neutral
+    # Fix conditional king image display
+    if king_health == "ill":
+        show king ill
+    else:
+        show king neutral
     show queen neutral
     show prince thoughtful
     show priest neutral
@@ -241,8 +245,12 @@ label chapter5:
 
 label ending_queen:
     scene bg gatehouse
+    # Conditional king image based on health
+    if king_health == "ill":
+        show king ill
+    else:
+        show king neutral
     show queen hopeful
-    show king ill if king_health == "ill" else king neutral
     show prince thoughtful
     n "Under the cover of night, the royal family slips away, the city of Folksreach burning behind them."
     q "We survived, but at what cost?"
@@ -270,7 +278,11 @@ label ending_prince:
 
 label ending_priest:
     scene bg sanctuary
-    show king wounded if king_health == "wounded" else king sad
+    # Conditional king image based on health
+    if king_health == "wounded":
+        show king wounded
+    else:
+        show king sad
     show priest satisfied
     n "Broken in body and spirit, King Theron renounces his crown and retreats to a monastery."
     show queen devastated
