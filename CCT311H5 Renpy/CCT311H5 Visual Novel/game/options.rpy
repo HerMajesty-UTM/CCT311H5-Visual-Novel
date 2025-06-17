@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.name = _("CCT311H5 Visual Novel")
+define config.name = _("CCT311H5: The Fall of Folksreach")
 
 
 ## Determines if the title given above is shown on the main menu screen. Set
@@ -23,7 +23,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "0.000001"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
