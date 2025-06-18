@@ -19,12 +19,40 @@ transform bg_fullscreen:
     xsize 1920
     ysize 1080
 
-transform portrait_default:
-    xpos 0.5
+# Standard portrait transform: consistent size, above dialogue box
+transform portrait_standard:
+    ypos 0.25
+    yanchor 0.0
+    zoom 0.5
+
+# Side-by-side transforms for up to 4 characters
+transform portrait_left:
+    xpos 0.2
+    ypos 0.25
     xanchor 0.5
-    ypos 0.75
-    yanchor 1.0
-    zoom 0.7
+    yanchor 0.0
+    zoom 0.5
+
+transform portrait_leftcenter:
+    xpos 0.4
+    ypos 0.25
+    xanchor 0.5
+    yanchor 0.0
+    zoom 0.5
+
+transform portrait_rightcenter:
+    xpos 0.6
+    ypos 0.25
+    xanchor 0.5
+    yanchor 0.0
+    zoom 0.5
+
+transform portrait_right:
+    xpos 0.8
+    ypos 0.25
+    xanchor 0.5
+    yanchor 0.0
+    zoom 0.5
 
 # Image Definitions
 image king neutral = "images/KING/king_neutral.png"
@@ -76,16 +104,16 @@ label start:
 label chapter1:
     play music "music/upbeat_theme.mp3" loop
     scene bg royal_chambers
-    show king neutral
-    show queen neutral
+    show king neutral at portrait_left
+    show queen neutral at portrait_right
     n "The sun rises over Folksreach. Within the royal chambers, King Theron sits in contemplation, Queen Elara by his side."
     k "Another restless night, Elara. The air feels heavy with whispers."
     q "You worry too much, my king. But I sense it too. The servants speak of unrest beyond the walls."
-    show prince thoughtful
+    show prince thoughtful at portrait_leftcenter
     n "Prince Arion lingers at the doorway, clutching a book, eyes darting between his parents."
     p "Father, may I join you at council today?"
     k "You are young, Arion. The matters discussed are weighty."
-    show priest neutral
+    show priest neutral at portrait_rightcenter
     n "Priest Valerius enters, bowing respectfully."
     v "Your Majesty, the people seek reassurance. The church stands ready to guide you through these troubled times."
     n "You, the royal advisor, must decide how to address the tension."
@@ -115,8 +143,8 @@ label chapter1:
 label chapter2:
     play music "music/main_theme.mp3" loop
     scene bg sanctuary
-    show king neutral
-    show priest neutral
+    show king neutral at portrait_left
+    show priest neutral at portrait_right
     n "Within the sanctuary, the King kneels in silent prayer. Priest Valerius approaches."
     v "Your Majesty, the burdens you bear are not yours alone. Let faith guide you."
     menu:
@@ -131,7 +159,7 @@ label chapter2:
             v "Even kings must not turn from the light."
     n "Elsewhere, Queen Elara gathers her advisors."
     scene bg royal_chambers
-    show queen hopeful
+    show queen hopeful at portrait_leftcenter
     q "I have devised a plan—a charity mission to aid the poor. But it will also serve as our escape, should war come."
     menu:
         "Support the Queen’s plan":
@@ -144,7 +172,7 @@ label chapter2:
             q "You doubt me? I only wish to protect our family."
     n "Meanwhile, Prince Arion attends his first council meeting."
     scene bg throne_room
-    show prince determined
+    show prince determined at portrait_leftcenter
     p "I will listen and learn, as you advised."
     n "The seeds of succession are sown."
     jump chapter3
@@ -153,13 +181,13 @@ label chapter2:
 label chapter3:
     play music "music/sad_theme.mp3" loop
     scene bg throne_room
-    show king neutral
-    show queen neutral
-    show prince thoughtful
+    show king neutral at portrait_left
+    show queen neutral at portrait_right
+    show prince thoughtful at portrait_leftcenter
     n "The royal family convenes in the throne room. Tension lingers in the air."
     k "Elara, your charity plan is bold. But will it save us?"
     q "It is our best hope. The people trust me."
-    show priest stern
+    show priest stern at portrait_rightcenter
     v "Charity is noble, but deception is a sin."
     menu:
         "Support the Queen’s plan":
@@ -173,7 +201,7 @@ label chapter3:
         "Suggest Prince assume partial duties":
             $ rep_prince += 2
             $ king_health = "ill"
-            show king ill
+            show king ill at portrait_left
             k "Arion, you must shoulder some burdens. My strength wanes."
             show prince determined
             p "I will not fail you, father."
@@ -183,7 +211,7 @@ label chapter3:
             v "Repentance is the first step to redemption."
     n "That night, the King dreams of the River Rhemes."
     scene bg sanctuary
-    show king sad
+    show king sad at portrait_leftcenter
     n "He sees visions—his mother, the city in flames, the priest's stern gaze."
     menu:
         "Interpret as a call to repentance":
@@ -200,14 +228,13 @@ label chapter3:
 label chapter4:
     play music "music/serious_theme.mp3" loop
     scene bg dining_hall
-    # Fix conditional king image display
     if king_health == "ill":
-        show king ill
+        show king ill at portrait_left
     else:
-        show king neutral
-    show queen neutral
-    show prince thoughtful
-    show priest neutral
+        show king neutral at portrait_left
+    show queen neutral at portrait_right
+    show prince thoughtful at portrait_leftcenter
+    show priest neutral at portrait_rightcenter
     n "A tense dinner gathers the royal family and their closest advisors."
     q "We must act soon. Goering's armies draw near."
     v "The soul of the kingdom is at stake."
@@ -278,18 +305,17 @@ label chapter5:
 label ending_queen:
     play music "music/sad_theme.mp3" loop
     scene bg gatehouse
-    # Conditional king image based on health
     if king_health == "ill":
-        show king ill
+        show king ill at portrait_left
     else:
-        show king neutral
-    show queen hopeful
-    show prince thoughtful
+        show king neutral at portrait_left
+    show queen hopeful at portrait_right
+    show prince thoughtful at portrait_leftcenter
     n "Under the cover of night, the royal family slips away, the city of Folksreach burning behind them."
     q "We survived, but at what cost?"
-    show king sad
+    show king sad at portrait_left
     k "Our home is lost, but our bloodline endures."
-    show prince sad
+    show prince sad at portrait_leftcenter
     p "Will we ever return?"
     n "The family watches the flames from afar. The world they knew is gone, but hope flickers in the darkness."
     n "{i}Charity Exodus Ending: The Queen's plan succeeds. Folksreach falls, but the royal family survives in exile.{/i}"
@@ -298,14 +324,14 @@ label ending_queen:
 label ending_prince:
     play music "music/upbeat_theme.mp3" loop
     scene bg throne_room
-    show king content
-    show prince happy
-    show queen happy
+    show king content at portrait_left
+    show prince happy at portrait_leftcenter
+    show queen happy at portrait_right
     n "King Theron, restored to health, abdicates the throne. Prince Arion is crowned before a jubilant court."
     k "Rule wisely, my son. The future is yours."
-    show prince determined
+    show prince determined at portrait_leftcenter
     p "I will honor our name, and bring peace to Folksreach."
-    show queen happy
+    show queen happy at portrait_right
     q "Our legacy endures."
     n "{i}Golden Age Ending: The Prince ushers in a new era of peace and prosperity.{/i}"
     jump credits
@@ -313,16 +339,15 @@ label ending_prince:
 label ending_priest:
     play music "music/sad_theme.mp3" loop
     scene bg sanctuary
-    # Conditional king image based on health
     if king_health == "wounded":
-        show king wounded
+        show king wounded at portrait_left
     else:
-        show king sad
-    show priest satisfied
+        show king sad at portrait_left
+    show priest satisfied at portrait_right
     n "Broken in body and spirit, King Theron renounces his crown and retreats to a monastery."
-    show queen devastated
+    show queen devastated at portrait_right
     q "You would leave us? After all we have endured?"
-    show priest contemplative
+    show priest contemplative at portrait_right
     v "He seeks redemption, Elara. Let him go."
     n "The kingdom fractures. The king vanishes into legend, praying for his people in obscurity."
     n "{i}Holy Redemption Ending: The king surrenders power for spiritual penance. His story becomes a myth.{/i}"
@@ -331,10 +356,10 @@ label ending_priest:
 label ending_failure:
     play music "music/sad_theme.mp3" loop
     scene bg gallows
-    show king sad
-    show queen sad
-    show prince upset
-    show priest disapproving
+    show king sad at portrait_left
+    show queen sad at portrait_right
+    show prince upset at portrait_leftcenter
+    show priest disapproving at portrait_rightcenter
     n "The kingdom falls into chaos. The royal family is scattered, their fate uncertain."
     n "{i}Failure: No path to salvation was found. Folksreach is lost to history.{/i}"
     jump credits
