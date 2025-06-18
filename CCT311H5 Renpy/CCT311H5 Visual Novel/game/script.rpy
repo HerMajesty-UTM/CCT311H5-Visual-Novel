@@ -59,7 +59,7 @@ image priest satisfied = "images/PRIEST/priest_satisfied.png"
 image bg royal_chambers = "images/royal_chambers.jpg"
 image bg sanctuary = "images/sanctuary.jpg"
 image bg throne_room = "images/throne_room.jpg"
-image bg dining_hall = "images/dining_hall.jpg"
+image bg dining_hall = "images/dinning_hall.jpg"
 image bg gatehouse = "images/gatehouse.jpg"
 image bg gallows = "images/gallows.jpg"
 
