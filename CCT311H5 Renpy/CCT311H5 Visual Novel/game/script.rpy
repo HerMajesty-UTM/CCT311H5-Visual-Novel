@@ -27,41 +27,41 @@ transform portrait_default:
     zoom 0.7
 
 # Image Definitions
-image king neutral = "game/images/characters/king_neutral.png" at portrait_default
-image king angry = "game/images/characters/king_angry.png" at portrait_default
-image king sad = "game/images/characters/king_sad.png" at portrait_default
-image king ill = "game/images/characters/king_ill.png" at portrait_default
-image king content = "game/images/characters/king_content.png" at portrait_default
-image king wounded = "game/images/characters/king_wounded.png" at portrait_default
+image king neutral = "images/KING/king_neutral.png"
+image king angry = "images/KING/king_angry.png"
+image king sad = "images/KING/king_sad.png"
+image king ill = "images/KING/king_ill.png"
+image king content = "images/KING/king_content.png"
+image king wounded = "images/KING/king_wounded.png"
 
-image queen neutral = "game/images/characters/queen_neutral.png" at portrait_default
-image queen worried = "game/images/characters/queen_worried.png" at portrait_default
-image queen hopeful = "game/images/characters/queen_hopeful.png" at portrait_default
-image queen sad = "game/images/characters/queen_sad.png" at portrait_default
-image queen happy = "game/images/characters/queen_happy.png" at portrait_default
-image queen devastated = "game/images/characters/queen_devastated.png" at portrait_default
+image queen neutral = "images/characters/queen_neutral.png"
+image queen worried = "images/QUEEN/queen_worried.png"
+image queen hopeful = "images/QUEEN/queen_hopeful.png"
+image queen sad = "images/QUEEN/queen_sad.png"
+image queen happy = "images/QUEEN/queen_happy.png"
+image queen devastated = "images/QUEEN/queen_devastated.png"
 
-image prince determined = "game/images/characters/prince_determined.png" at portrait_default
-image prince worried = "game/images/characters/prince_worried.png" at portrait_default
-image prince happy = "game/images/characters/prince_happy.png" at portrait_default
-image prince sad = "game/images/characters/prince_sad.png" at portrait_default
-image prince thoughtful = "game/images/characters/prince_thoughtful.png" at portrait_default
-image prince upset = "game/images/characters/prince_upset.png" at portrait_default
+image prince determined = "images/characters/prince_determined.png"
+image prince worried = "images/PRINCE/prince_worried.png"
+image prince happy = "images/PRINCE/prince_happy.png"
+image prince sad = "images/PRINCE/prince_sad.png"
+image prince thoughtful = "images/PRINCE/prince_thoughtful.png"
+image prince upset = "images/PRINCE/prince_upset.png"
 
-image priest neutral = "game/images/characters/priest_neutral.png" at portrait_default
-image priest concerned = "game/images/characters/priest_concerned.png" at portrait_default
-image priest stern = "game/images/characters/priest_stern.png" at portrait_default
-image priest contemplative = "game/images/characters/priest_contemplative.png" at portrait_default
-image priest disapproving = "game/images/characters/priest_disapproving.png" at portrait_default
-image priest satisfied = "game/images/characters/priest_satisfied.png" at portrait_default
+image priest neutral = "images/PRIEST/priest_neutral.png"
+image priest concerned = "images/PRIEST/priest_concerned.png"
+image priest stern = "images/PRIEST/priest_stern.png"
+image priest contemplative = "images/PRIEST/priest_contemplative.png"
+image priest disapproving = "images/PRIEST/priest_disapproving.png"
+image priest satisfied = "images/PRIEST/priest_satisfied.png"
 
 # Background Images
-image bg royal_chambers = "game/images/backgrounds/royal_chambers.jpg" at bg_fullscreen
-image bg sanctuary = "game/images/backgrounds/sanctuary.jpg" at bg_fullscreen
-image bg throne_room = "game/images/backgrounds/throne_room.jpg" at bg_fullscreen
-image bg dining_hall = "game/images/backgrounds/dining_hall.jpg" at bg_fullscreen
-image bg gatehouse = "game/images/backgrounds/gatehouse.jpg" at bg_fullscreen
-image bg gallows = "game/images/backgrounds/gallows.jpg" at bg_fullscreen
+image bg royal_chambers = "images/royal_chambers.jpg"
+image bg sanctuary = "images/sanctuary.jpg"
+image bg throne_room = "images/throne_room.jpg"
+image bg dining_hall = "images/dining_hall.jpg"
+image bg gatehouse = "images/gatehouse.jpg"
+image bg gallows = "images/gallows.jpg"
 
 # Variables for tracking reputation and health
 default rep_queen = 0
