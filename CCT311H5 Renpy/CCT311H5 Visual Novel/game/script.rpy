@@ -34,14 +34,14 @@ image king ill = "images/KING/king_ill.png"
 image king content = "images/KING/king_content.png"
 image king wounded = "images/KING/king_wounded.png"
 
-image queen neutral = "images/characters/queen_neutral.png"
+image queen neutral = "images/QUEEN/queen_neutral.png"
 image queen worried = "images/QUEEN/queen_worried.png"
 image queen hopeful = "images/QUEEN/queen_hopeful.png"
 image queen sad = "images/QUEEN/queen_sad.png"
 image queen happy = "images/QUEEN/queen_happy.png"
 image queen devastated = "images/QUEEN/queen_devastated.png"
 
-image prince determined = "images/characters/prince_determined.png"
+image prince determined = "images/PRINCE/prince_determined.png"
 image prince worried = "images/PRINCE/prince_worried.png"
 image prince happy = "images/PRINCE/prince_happy.png"
 image prince sad = "images/PRINCE/prince_sad.png"
@@ -74,6 +74,7 @@ label start:
 
 # --- Chapter 1: Whispers in the Hall / Child of the Court / The Confession ---
 label chapter1:
+    play music "music/upbeat_theme.mp3" loop
     scene bg royal_chambers
     show king neutral
     show queen neutral
@@ -112,6 +113,7 @@ label chapter1:
 
 # --- Chapter 2: The Sanctuary’s Offer / Throne Room Lessons / The Queen’s Plan Unveiled ---
 label chapter2:
+    play music "music/main_theme.mp3" loop
     scene bg sanctuary
     show king neutral
     show priest neutral
@@ -149,6 +151,7 @@ label chapter2:
 
 # --- Chapter 3: The Charity Plan / The King’s Trial / The River Rhemes Vision ---
 label chapter3:
+    play music "music/sad_theme.mp3" loop
     scene bg throne_room
     show king neutral
     show queen neutral
@@ -195,6 +198,7 @@ label chapter3:
 
 # --- Chapter 4: The Royal Dinner Debate / The Gallows Verdict / The Sanctuary’s Oath ---
 label chapter4:
+    play music "music/serious_theme.mp3" loop
     scene bg dining_hall
     # Fix conditional king image display
     if king_health == "ill":
@@ -251,6 +255,7 @@ label chapter4:
 
 # --- Chapter 5: Endings ---
 label chapter5:
+    play music "music/serious_theme.mp3" loop
     # Calculate total reputation
     $ total_rep = rep_queen + rep_prince + rep_priest
 
@@ -271,6 +276,7 @@ label chapter5:
         jump ending_failure
 
 label ending_queen:
+    play music "music/sad_theme.mp3" loop
     scene bg gatehouse
     # Conditional king image based on health
     if king_health == "ill":
@@ -290,6 +296,7 @@ label ending_queen:
     jump credits
 
 label ending_prince:
+    play music "music/upbeat_theme.mp3" loop
     scene bg throne_room
     show king content
     show prince happy
@@ -304,6 +311,7 @@ label ending_prince:
     jump credits
 
 label ending_priest:
+    play music "music/sad_theme.mp3" loop
     scene bg sanctuary
     # Conditional king image based on health
     if king_health == "wounded":
@@ -321,6 +329,7 @@ label ending_priest:
     jump credits
 
 label ending_failure:
+    play music "music/sad_theme.mp3" loop
     scene bg gallows
     show king sad
     show queen sad
@@ -331,5 +340,6 @@ label ending_failure:
     jump credits
 
 label credits:
+    stop music
     n "Thank you for playing."
     return
